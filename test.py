@@ -39,11 +39,33 @@ from torchvision.transforms import transforms
 #         if a[i]>b[i]:
 #             cont+=1
 #             time.sleep(0.1)
-c_path=os.path.abspath(__file__)
-father_path = os.path.abspath(os.path.dirname(c_path) + os.path.sep + ".")
-print(father_path)
+# c_path=os.path.abspath(__file__)
+# father_path = os.path.abspath(os.path.dirname(c_path) + os.path.sep + ".")
+# print(father_path)
+#
+# a='s'
+# b=[[1,2],[3,1]]
+# c={a:b}
+# print(c)
+a=[[[1,2.],[2,3]],[[3,4],[5,6]],[[7,8],[9,8]]]
+b=[[[1,2],[2,3]],[[3,4],[5,6]],[[7,8],[9,8.]]]
+a=torch.tensor(a)
+b=torch.tensor(b)
+a=torch.nn.functional.normalize(a,p=2)
+b=torch.nn.functional.normalize(b,p=2)
+# b=b.permute(1,0,2)
+a_=a[1][1]
+b_=b[1][1]
+print(a_)
+print(b_.t())
 
-a='s'
-b=[[1,2],[3,1]]
-c={a:b}
+theta=torch.cosine_similarity(a,b,dim=1)
+print(theta)
+c=[]
+d=[1,2,3]
+c.append(d)
+print(c)
+
+c=torch.tensor([0.1,0.4])
+b=torch.max(c,dim=1)
 print(c)

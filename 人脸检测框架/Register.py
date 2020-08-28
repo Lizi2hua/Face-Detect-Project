@@ -5,7 +5,7 @@ from 特征提取框架.extractor import Extractor
 import time
 from tqdm import tqdm
 import torch
-import os
+import osbz
 import numpy as np
 
 #调试超参数
@@ -28,7 +28,7 @@ class Register():
         id=input("ID:")
         path = os.path.join(data_path, id)
 
-        while self.frame_count in tqdm(range(5)):
+        while self.frame_count in tqdm(range(10)):
             #提取时，跳10帧
             frame_skip += 1
             ret, frame = self.video.read()
